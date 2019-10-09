@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.9.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		url 'http://oss.jfrog.org/oss-snapshot-local'
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	compileOnly 'org.projectlombok:lombok'
+	compile 'io.springfox:springfox-core:3.0.0-SNAPSHOT'
+	compile 'io.springfox:springfox-spi:3.0.0-SNAPSHOT'
+	compile 'io.springfox:springfox-schema:3.0.0-SNAPSHOT'
+	compile 'io.springfox:springfox-swagger2:3.0.0-SNAPSHOT'
+	compile 'io.springfox:springfox-swagger-ui:3.0.0-SNAPSHOT'
+	//compile 'io.springfox:springfox-spring-web:3.0.0-SNAPSHOT'
+	compile 'io.springfox:springfox-spring-webflux:3.0.0-SNAPSHOT'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+}
